@@ -30,7 +30,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       statLabel3: "Monumentos",
       statVal3: "19",
       summary: "Considerado unanimemente o maior ciclista de todos os tempos. Atacava de forma incansável, superando seus adversários taticamente.",
-      image: "/src/assets/images/Ciclismogrupo 1.jpg"
+      image: "images/Ciclismogrupo 1.jpg" // <-- Ajustado aqui
     },
     {
       name: "René MAGRITTE",
@@ -43,8 +43,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       statLabel3: "Mecenato",
       statVal3: "Global",
       summary: "Questionou a relação entre imagens e palavras através de quadros enigmáticos como 'Isto não é um cachimbo'.",
-      // Como Magritte é artes/cultura, você pode usar "cultura 2.jpg" ou manter "chocolate belgagrupo 1.jpg" como no original
-      image: "/src/assets/images/cultura 2.jpg"
+      image: "images/cultura 2.jpg" // <-- Ajustado aqui
     },
     {
       name: "Georges LEMAÎTRE",
@@ -57,7 +56,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       statLabel3: "Formação",
       statVal3: "PhD & Padre",
       summary: "Físico e sacerdote belga que deduziu matematicamente a expansão do universo e propôs a origem cósmica aceita hoje.",
-      image: "/src/assets/images/ciencia fisicagrupo 1.jpg"
+      image: "images/ciencia fisicagrupo 1.jpg" // <-- Ajustado aqui
     },
     {
       name: "Jean NEUHAUS",
@@ -70,7 +69,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       statLabel3: "Tipo do Bombom",
       statVal3: "Recheado",
       summary: "Revolucionou a chocolateria de Bruxelas ao criar uma casquinha rígida de chocolate recheada com ganache.",
-      image: "/src/assets/images/chocolate belgagrupo 1.jpg"
+      image: "images/chocolate belgagrupo 1.jpg" // <-- Ajustado aqui
     }
   ] as const;
 
@@ -110,7 +109,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
           aria-label="Abrir artigo de capa: História e Política da Bélgica"
         >
           <img
-            src="/src/assets/images/historia 1 grupo 1.jpg"
+            src="images/historia 1 grupo 1.jpg" // <-- Ajustado aqui
             alt="Fachada histórica da Grand Place de Bruxelas decorada"
             className="absolute inset-0 w-full h-full object-cover rounded-none transition-transform duration-700 group-hover:scale-[1.03]"
             referrerPolicy="no-referrer"
