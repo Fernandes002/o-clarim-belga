@@ -39,23 +39,6 @@ export default defineConfig(({ mode }) => {
       // Evita requisições HTTP adicionais para arquivos muito pequenos (ícones, micro-vetores)
       // embutindo-os diretamente como Base64 se forem menores que 4kb
       assetsInlineLimit: 4096,
-
-      rollupOptions: {
-        output: {
-          // Divisão de Código (Code-Splitting) robusta para portais de notícias:
-          // Isola as dependências de terceiros mais pesadas em pacotes separados.
-          // Isso otimiza o cache do navegador do usuário, pois bibliotecas não mudam com frequência.
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('react') || id.includes('react-dom')) {
-                return 'vendor-react';
-              }
-              return 'vendor-helpers';
-            }
-            return undefined;
-          },
-        },
-      },
     },
     // Otimização de entrega de código
     esbuild: {
