@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* TRAVA GLOBAL DE MODO CLARO PARA IMPEDIR INVERSÃO DE COR DO CELULAR */
+html,
+body {
+  color-scheme: light !important;
+}
+
+/* Sincroniza o color-scheme nativo quando o site estiver em modo escuro (.dark) */
+.dark,
+.dark html,
+.dark body {
+  color-scheme: dark !important;
+}
+
+/* PREVENÇÃO DE INVERSÃO DE COR PARA A BANDEIRA (MODO ESCURO FORÇADO / ECONOMIA DE BATERIA) */
+.bandeira-belgica,
+.bandeira-belgica * {
+  color-scheme: only light !important;
+  forced-color-adjust: none !important;
+}
+
+:root {
+  color-scheme: light !important;
+  --color-paper: #FAFAF8;
+  --color-paper-warm: #F5F3EF;
+  --color-paper-cream: #EFEDE8;
+  --color-ink: #1a1a1a;
+  --color-ink-light: #4a4a4a;
+  --color-ink-muted: #8a8a8a;
+  --color-ink-faint: #b5b5b5;
+  --color-rule: #e5e2dc;
+  --color-rule-light: #f0ede7;
+  --color-card-bg: #ffffff;
+  --color-accent-gold-bg: rgba(184, 134, 11, 0.08);
+  --color-accent-red-bg: rgba(200, 16, 46, 0.05);
+  --color-accent-green-bg: rgba(45, 138, 78, 0.08);
+  --color-chart-text: #4a4a4a;
+  --color-chart-grid: #e5e2dc;
+}
+
+.dark {
+  --color-paper: #090B0F;
+  --color-paper-warm: #101424;
+  --color-paper-cream: #161B33;
+  --color-ink: #F1F5F9;
+  --color-ink-light: #CBD5E1;
+  --color-ink-muted: #94A3B8;
+  --color-ink-faint: #475569;
+  --color-rule: #1E293B;
+  --color-rule-light: #334155;
+  --color-card-bg: #101424;
+  --color-accent-gold-bg: rgba(245, 197, 24, 0.12);
+  --color-accent-red-bg: rgba(200, 16, 46, 0.15);
+  --color-accent-green-bg: rgba(45, 138, 78, 0.12);
+  --color-chart-text: #cbd5e1;
+  --color-chart-grid: #1e293b;
+}
+
+@theme {
+  --font-serif: "Lora", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Cores de identidade nacional belga */
+  --color-belgian-red: #C8102E;
+  --color-belgian-gold: #B8860B;
+
+  /* Mapeamento de Cores Dinâmicas */
+  --color-paper: var(--color-paper);
+  --color-paper-warm: var(--color-paper-warm);
+  --color-paper-cream: var(--color-paper-cream);
+  --color-ink: var(--color-ink);
+  --color-ink-light: var(--color-ink-light);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-rule: var(--color-rule);
+  --color-rule-light: var(--color-rule-light);
+  --color-card-bg: var(--color-card-bg);
+  --color-accent-gold-bg: var(--color-accent-gold-bg);
+  --color-accent-red-bg: var(--color-accent-red-bg);
+  --color-accent-green-bg: var(--color-accent-green-bg);
+  --color-chart-text: var(--color-chart-text);
+  --color-chart-grid: var(--color-chart-grid);
+}
+
+/* Scrollbar Elegante Discreta */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0cdc6;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a49c;
+}
+
+/* Animação do Ticker de Notícias */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Animações de Entrada Suaves */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.35s ease-out both;
+}
+
+/* Capitular Editorial */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 4.5rem;
+  line-height: 3.5rem;
+  padding-top: 4px;
+  padding-right: 12px;
+  padding-left: 4px;
+  font-weight: 800;
+  color: var(--color-belgian-red);
+  text-transform: uppercase;
+}
+
+/* Foco de Acessibilidade (WCAG 2.1) */
+*:focus-visible {
+  outline: 2px solid var(--color-belgian-gold);
+  outline-offset: 2px;
+}
+
+/* Colunas de Jornal */
+.newspaper-columns {
+  column-count: 1;
+  column-gap: 2rem;
+  column-rule: 1px solid var(--color-rule);
+}
+
+@media (min-width: 768px) {
+  .newspaper-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .newspaper-columns {
+    column-count: 3;
+  }
+}
+
+/* Sombra Editorial Suave — usada em cards e painéis */
+.shadow-editorial {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-editorial-hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.dark .shadow-editorial {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .shadow-editorial-hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Transição suave global */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
