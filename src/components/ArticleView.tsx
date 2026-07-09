@@ -282,6 +282,16 @@ export default function ArticleView({ section, onBack, onNavigateToSection }: Ar
             }
           }
 
+          // Fallback: detect ASCII box-drawing characters and render as styled pre block
+          const hasBoxDrawing = /[┌┐└┘├┤│─┬┴╌╎▼▲►◄┼═║╔╗╚╝╠╣╦╩]/.test(p);
+          if (hasBoxDrawing) {
+            return (
+              <div key={pIdx} className="my-6 border border-rule/60 bg-card-bg p-5 shadow-editorial overflow-x-auto">
+                <pre className="text-[11px] font-mono text-ink-light leading-relaxed whitespace-pre">{p}</pre>
+              </div>
+            );
+          }
+
           const isBullet = p.startsWith('- ') || p.trim().startsWith('* ');
           let textContent = p;
           if (p.startsWith('- ')) textContent = p.slice(2);
