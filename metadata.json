@@ -1,0 +1,8 @@
+{
+  "name": "O Clarim Belga",
+  "description": "Portal analítico-jornalístico e acadêmico de alta performance sobre o Reino da Bélgica. Cobertura rigorosa de História, Geografia, Clima, Cultura, Economia e Esportes, enriquecida com gráficos vetoriais interativos e cartografia dinâmica sob uma identidade visual editorial sóbria, elegante e focada em dados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
