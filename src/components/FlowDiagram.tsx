@@ -120,6 +120,18 @@ export const HISTORIA_DIAGRAMS: Record<string, DiagramRow[]> = {
       ],
     },
   ],
+  cap6b: [
+    { type: 'node', nodes: [{ id: 'gov1', label: 'Estrutura Governamental' }] },
+    {
+      type: 'list',
+      items: [
+        'Chefe de Estado: Rei Filipe',
+        'Chefe de Governo: Primeiro-Ministro',
+        'Parlamento Bicameral: Câmara dos Representantes + Senado',
+        'Conselho de Ministros: Paridade linguística obrigatória',
+      ],
+    },
+  ],
 };
 
 // -----------------------------------------------------------------------
@@ -703,6 +715,8 @@ export function getEmbeddedDiagram(paragraphText: string): DiagramRow[] | null {
   if (text.startsWith('[Análise Sociológica')) return CULTURA_DIAGRAMS['cap2b'];
   if (text.startsWith('[A Origem das Batatas')) return CULTURA_DIAGRAMS['cap3b'];
   if (text.startsWith('[Dinâmica Religiosa')) return CULTURA_DIAGRAMS['cap6b'];
+  // Detect ASCII box-drawing diagrams (┌, └, ├, etc.)
+  if (/^[┌┐└┘├┤│─┬┴╌╎▼▲►◄┼]/.test(text)) return HISTORIA_DIAGRAMS['cap6b'];
   return null;
 }
 
