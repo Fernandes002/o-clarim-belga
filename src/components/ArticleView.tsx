@@ -673,11 +673,7 @@ export default function ArticleView({ section, onBack, onNavigateToSection }: Ar
 
     return (
       <div className="space-y-8">
-        {data.intro && (
-          <p className="text-lg text-ink-light font-sans font-normal leading-relaxed italic border-b border-rule pb-4">
-            {data.intro}
-          </p>
-        )}
+
 
         {data.sections.map((sec, idx) => (
           <section key={idx} className="space-y-4">
